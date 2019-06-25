@@ -60,4 +60,4 @@ If problems arise, create an issue or write us on Discord.
 
 | The Programmers | tim03we's Plugins
 | :---: | :---: |
-[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) | [![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/F72Z2M7) |
+[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) | [![Discord](https://img.shields.io/discord/592079767172284417.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/F72Z2M7) |
