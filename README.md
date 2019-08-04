@@ -8,7 +8,7 @@ GunGame is a nice MiniGame that hasn't been seen often in the Minecraft Bedrock 
 - Activate or deactivate certain events
 - Change the chat format, as well as your nametag in the game
 # Setup
-- Download the plugin as Phar or folder
+- Download the plugin as Jar
 - Pack the plugin into the plugins folder
 - Set the game mode in server.properties to Adventure (value: 2)
 - Start / restart the server
@@ -29,15 +29,15 @@ Chance: 0.60
 # Which events should be activated and which should be deactivated?
 # Default = @all "false"
 events:
-    hunger: false
-    place: false
-    break: false
-    inv-move: false
-    drop: false
+  hunger: false
+  place: false
+  break: false
+  inv-move: false
+  drop: false
 
 format:
-    chat: "§8[§c{level}§8] §7{player} §8> §f{msg}"
-    nametag: "§8[§c{level}§8] §7{player}"
+  chat: "§8[§c{level}§8] §7{player} §8> §f{msg}"
+  nametag: "§8[§c{level}§8] §7{player}"
 
 
 # Here you can change the messages.
@@ -46,18 +46,18 @@ format:
 # {msg} = Your message
 # {killer} = Who killed you
 messages:
-    join: "{player} has entered the GunGame server."
-    quit: "{player} has left the GunGame server."
-    death: "{player} died!"
-    kill: "{player} was killed by {killer}."
-    reload: "Your levels were reset by a server reload."
-    max: "You have already reached the maximum level. Keep it up!"
+  join: "{player} has entered the GunGame server."
+  quit: "{player} has left the GunGame server."
+  death: "{player} died!"
+  kill: "{player} was killed by {killer}."
+  reload: "Your levels were reset by a server reload."
+  max: "You have already reached the maximum level. Keep it up!"
 ```
 ----------------
 # Discord
 
 If problems arise, create an issue or write us on Discord.
 
-| The Programmers | tim03we's Plugins
-| :---: | :---: |
-[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) | [![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/F72Z2M7) |
+| The Programmers |
+| :---: |
+[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) |
