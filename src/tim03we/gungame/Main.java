@@ -119,7 +119,7 @@ public class Main extends PluginBase {
     public void levelDown(Player player)
     {
         int cL = this.levels.get(player.getName());
-        int nL = Math.round(cL * this.getConfig().getInt("Chance"));
+        int nL = cL * this.getConfig().getInt("Chance");
         this.levels.put(player.getName(), nL);
     }
 }

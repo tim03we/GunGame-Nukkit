@@ -23,6 +23,7 @@ import cn.nukkit.Player;
 import cn.nukkit.block.Block;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
@@ -40,7 +41,7 @@ public class EntityListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onMove(PlayerMoveEvent event)
     {
         Player player = event.getPlayer();
@@ -65,19 +66,16 @@ public class EntityListener implements Listener {
 
     }
 
-    @EventHandler
-    public void onDamage(EntityDamageEvent event)
-    {
-        Entity player = event.getEntity();
-        if(player instanceof Player) {
-            EntityDamageEvent.DamageCause cause = event.getCause();
-            if(cause == EntityDamageEvent.DamageCause.FALL) {
-                event.setCancelled(true);
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerDamage(EntityDamageEvent event) {
+        if(event.getEntity() instanceof Player) {
+            if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
+                event.setCancelled();
             }
         }
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onDeath(PlayerDeathEvent event)
     {
         event.setDrops(null);

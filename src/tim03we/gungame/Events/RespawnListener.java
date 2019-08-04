@@ -21,6 +21,7 @@ package tim03we.gungame.Events;
 
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerRespawnEvent;
 import tim03we.gungame.Main;
@@ -34,7 +35,7 @@ public class RespawnListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onRespawn(PlayerRespawnEvent event)
     {
         Player player = event.getPlayer();

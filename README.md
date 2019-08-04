@@ -8,7 +8,7 @@ GunGame is a nice MiniGame that hasn't been seen often in the Minecraft Bedrock 
 - Activate or deactivate certain events
 - Change the chat format, as well as your nametag in the game
 # Setup
-- Download the plugin as Jar or folder
+- Download the plugin as Phar or folder
 - Pack the plugin into the plugins folder
 - Set the game mode in server.properties to Adventure (value: 2)
 - Start / restart the server
@@ -60,4 +60,4 @@ If problems arise, create an issue or write us on Discord.
 
 | The Programmers | tim03we's Plugins
 | :---: | :---: |
-[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) | [![Discord](https://img.shields.io/discord/592079767172284417.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/F72Z2M7) |
+[![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/Ce2aY25) | [![Discord](https://img.shields.io/discord/427472879072968714.svg?style=flat-square&label=discord&colorB=7289da)](https://discord.gg/F72Z2M7) |

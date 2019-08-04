@@ -21,6 +21,7 @@ package tim03we.gungame.Events;
 
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
 import cn.nukkit.event.player.PlayerLoginEvent;
@@ -36,7 +37,7 @@ public class LogListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onLogin(PlayerLoginEvent event)
     {
         Player player = event.getPlayer();
@@ -44,7 +45,7 @@ public class LogListener implements Listener {
         this.plugin.needLevel.put(player.getName(), 0);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event)
     {
         Player player = event.getPlayer();
@@ -52,7 +53,7 @@ public class LogListener implements Listener {
         event.setJoinMessage(this.plugin.getConfig().getString("messages.join").replace("{player}", player.getName()));
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onQuit(PlayerQuitEvent event)
     {
         Player player = event.getPlayer();

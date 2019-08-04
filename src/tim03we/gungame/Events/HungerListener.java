@@ -20,20 +20,21 @@ package tim03we.gungame.Events;
  */
 
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerFoodLevelChangeEvent;
 import tim03we.gungame.Main;
 
 public class HungerListener implements Listener {
 
-    Main plugin;
+    private Main plugin;
 
     public HungerListener(Main plugin)
     {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onHunger(PlayerFoodLevelChangeEvent event)
     {
         if(!this.plugin.getConfig().getBoolean("events.hunger")) {

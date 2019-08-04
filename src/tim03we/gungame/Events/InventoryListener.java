@@ -20,6 +20,7 @@ package tim03we.gungame.Events;
  */
 
 import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.inventory.InventoryTransactionEvent;
 import tim03we.gungame.Main;
@@ -33,7 +34,7 @@ public class InventoryListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onInvMove(InventoryTransactionEvent event)
     {
         if(!this.plugin.getConfig().getBoolean("events.inv-move")) {
