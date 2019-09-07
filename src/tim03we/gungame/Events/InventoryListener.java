@@ -37,10 +37,6 @@ public class InventoryListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInvMove(InventoryTransactionEvent event)
     {
-        if(!this.plugin.getConfig().getBoolean("events.inv-move")) {
-            event.setCancelled(true);
-        } else {
-            event.setCancelled(false);
-        }
+        event.setCancelled(true);
     }
 }

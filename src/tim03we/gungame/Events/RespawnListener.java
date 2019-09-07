@@ -39,7 +39,7 @@ public class RespawnListener implements Listener {
     public void onRespawn(PlayerRespawnEvent event)
     {
         Player player = event.getPlayer();
-        player.setGamemode(this.plugin.getConfig().getInt("Gamemode"));
+        player.setGamemode(plugin.settings.GAMEMODE);
         this.plugin.needLevel.put(player.getName(), 1);
     }
 }

@@ -37,10 +37,6 @@ public class HungerListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onHunger(PlayerFoodLevelChangeEvent event)
     {
-        if(!this.plugin.getConfig().getBoolean("events.hunger")) {
-            event.setCancelled(true);
-        } else {
-            event.setCancelled(false);
-        }
+        event.setCancelled(true);
     }
 }

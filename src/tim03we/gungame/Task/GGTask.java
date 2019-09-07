@@ -39,8 +39,7 @@ public class GGTask extends Task {
         for (Player player : this.plugin.getServer().getOnlinePlayers().values()) {
             int needLevel = this.plugin.needLevel.get(player.getName());
             if (needLevel == 1) {
-                int currLevel = this.plugin.levels.get(player.getName());
-                this.plugin.levelChange(player, currLevel);
+                this.plugin.levelChange(player);
             }
         }
     }

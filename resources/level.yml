@@ -1,6 +1,10 @@
 ---
-# Please do not change this!
-version: 1.0.0
+# Add more items you want to get.
+# This action is only executed if it is also activated in the "config.yml".
+other-items:
+  - "276:0:1"
+  - "261:0:1"
+  - "262:0:32"
 
 # Important!
 # Don't let any armor parts disappear at the next level, or there will be problems later in the game.

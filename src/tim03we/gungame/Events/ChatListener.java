@@ -28,7 +28,7 @@ import tim03we.gungame.Main;
 
 public class ChatListener implements Listener {
 
-    Main plugin;
+    private Main plugin;
 
     public ChatListener(Main plugin)
     {

@@ -37,10 +37,6 @@ public class DropListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onDrop(PlayerDropItemEvent event)
     {
-        if(!this.plugin.getConfig().getBoolean("events.drop")) {
-            event.setCancelled(true);
-        } else {
-            event.setCancelled(false);
-        }
+        event.setCancelled(true);
     }
 }
