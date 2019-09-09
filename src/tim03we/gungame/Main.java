@@ -171,8 +171,9 @@ public class Main extends PluginBase {
     }
 
     public void loadSettings() {
-        for (String list : new Config(this.getDataFolder() + "/level.yml", Config.YAML).getStringList("other-items")) {
-            settings.OTHER_ITEMS.add(list);
+        settings.USE_OTHER_ITEMS = this.getConfig().getBoolean("use-other-items");
+        if(settings.USE_OTHER_ITEMS) {
+            settings.OTHER_ITEMS.addAll(new Config(this.getDataFolder() + "/level.yml", Config.YAML).getStringList("other-items"));
         }
         settings.GAMEMODE = this.getConfig().getInt("gamemode");
         settings.CHAT_FORMAT = this.getConfig().getString("format.chat");
@@ -180,7 +181,6 @@ public class Main extends PluginBase {
         settings.PVP_RADIUS = this.getConfig().getInt("pvp-radius");
         settings.MAX_KITS = this.getConfig().getInt("Maximum-Level");
         settings.SAVE_INVENTORY = this.getConfig().getBoolean("save-level");
-        settings.USE_OTHER_ITEMS = this.getConfig().getBoolean("use-other-items");
         settings.BREAK_EVENT = this.getConfig().getBoolean("events.load.break");
         settings.CHAT_EVENT = this.getConfig().getBoolean("events.load.chat");
         settings.DAMAGE_EVENT = this.getConfig().getBoolean("events.load.damage");
@@ -194,6 +194,29 @@ public class Main extends PluginBase {
         settings.PLACE_EVENT = this.getConfig().getBoolean("events.load.place");
         settings.QUIT_EVENT = this.getConfig().getBoolean("events.load.quit");
         settings.RESPAWN_EVENT = this.getConfig().getBoolean("events.load.respawn");
+        settings.FIGHT_EVENT = this.getConfig().getBoolean("events.load.fight");
+        this.getLogger().notice(" ");
+        this.getServer().getLogger().notice("Settings:");
+        this.getLogger().notice("Use other items: " + String.valueOf(settings.USE_OTHER_ITEMS));
+        this.getLogger().notice("Gamemode: " + String.valueOf(settings.GAMEMODE));
+        this.getLogger().notice("PvP Radius Protection: " + String.valueOf(settings.PVP_RADIUS));
+        this.getLogger().notice("Max Level: " + String.valueOf(settings.MAX_KITS));
+        this.getLogger().notice("Save Inventory: " + String.valueOf(settings.SAVE_INVENTORY));
+        this.getLogger().notice("Break Event: " + String.valueOf(settings.BREAK_EVENT));
+        this.getLogger().notice("Chat Event: " + String.valueOf(settings.CHAT_EVENT));
+        this.getLogger().notice("Damage Event: " + String.valueOf(settings.DAMAGE_EVENT));
+        this.getLogger().notice("Death Event: " + String.valueOf(settings.DEATH_EVENT));
+        this.getLogger().notice("Drop Event: " + String.valueOf(settings.DROP_EVENT));
+        this.getLogger().notice("Hunger Event: " + String.valueOf(settings.HUNGER_EVENT));
+        this.getLogger().notice("Inv Move Event: " + String.valueOf(settings.INV_MOVE_EVENT));
+        this.getLogger().notice("Join Event: " + String.valueOf(settings.JOIN_EVENT));
+        this.getLogger().notice("Login Event: " + String.valueOf(settings.LOGIN_EVENT));
+        this.getLogger().notice("Move Event: " + String.valueOf(settings.MOVE_EVENT));
+        this.getLogger().notice("Place Event: " + String.valueOf(settings.PLACE_EVENT));
+        this.getLogger().notice("Quit Event: " + String.valueOf(settings.QUIT_EVENT));
+        this.getLogger().notice("Respawn Event: " + String.valueOf(settings.RESPAWN_EVENT));
+        this.getLogger().notice("Fight Event: " + String.valueOf(settings.FIGHT_EVENT));
+        this.getLogger().notice(" ");
     }
 
     public void levelUp(Player player)
