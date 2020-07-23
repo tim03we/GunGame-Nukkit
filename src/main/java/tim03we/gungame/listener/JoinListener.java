@@ -1,9 +1,6 @@
 package tim03we.gungame.listener;
 
 /*
- * Copyright (c) 2019 tim03we  < https://github.com/tim03we >
- * Discord: tim03we | TP#9129
- *
  * This software is distributed under "GNU General Public License v3.0".
  * This license allows you to use it and/or modify it but you are not at
  * all allowed to sell this plugin at any cost. If found doing so the
@@ -20,6 +17,7 @@ package tim03we.gungame.listener;
  */
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;

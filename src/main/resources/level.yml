@@ -12,17 +12,6 @@ other-items:
 
 # Here you can put your kits right, which are changed after each kill.
 # Important! Sub-IDs are not yet supported.
-L0:
-  helmet:
-    id: 0
-  chestplate:
-    id: 0
-  leggings:
-    id: 0
-  boots:
-    id: 0
-  weapon:
-    id: 271
 L1:
   helmet:
     id: 0
@@ -33,8 +22,19 @@ L1:
   boots:
     id: 0
   weapon:
-    id: 268
+    id: 271
 L2:
+  helmet:
+    id: 0
+  chestplate:
+    id: 0
+  leggings:
+    id: 0
+  boots:
+    id: 0
+  weapon:
+    id: 268
+L3:
   helmet:
     id: 0
   chestplate:
@@ -45,7 +45,7 @@ L2:
     id: 0
   weapon:
     id: 268
-L3:
+L4:
   helmet:
     id: 0
   chestplate:

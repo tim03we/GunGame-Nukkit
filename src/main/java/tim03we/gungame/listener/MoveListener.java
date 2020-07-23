@@ -1,9 +1,6 @@
 package tim03we.gungame.listener;
 
 /*
- * Copyright (c) 2019 tim03we  < https://github.com/tim03we >
- * Discord: tim03we | TP#9129
- *
  * This software is distributed under "GNU General Public License v3.0".
  * This license allows you to use it and/or modify it but you are not at
  * all allowed to sell this plugin at any cost. If found doing so the
@@ -20,6 +17,7 @@ package tim03we.gungame.listener;
  */
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.block.Block;
 import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
@@ -55,10 +53,12 @@ public class MoveListener implements Listener {
                 Entity damager = ((EntityDamageByEntityEvent) cause).getDamager();
                 if(damager instanceof Player) {
                     this.plugin.levelUp((Player)damager);
+                    player.teleport(Server.getInstance().getDefaultLevel().getSafeSpawn());
                     player.attack(new EntityDamageEvent(player, EntityDamageEvent.DamageCause.CUSTOM, 1000));
                     this.plugin.getServer().broadcastMessage(this.plugin.getConfig().getString("messages.kill").replace("{player}", player.getName()).replace("{killer}", damager.getName()));
                 }
             } else {
+                player.teleport(Server.getInstance().getDefaultLevel().getSafeSpawn());
                 player.attack(new EntityDamageEvent(player, EntityDamageEvent.DamageCause.DROWNING, 1000));
             }
         }

@@ -1,6 +1,6 @@
 ---
 # At which level should you no longer be able to receive kits?
-Maximum-Level: 3
+Maximum-Level: 4
 
 # Specify a percentage of the chance that you will lose many levels.
 # Default = 0.60

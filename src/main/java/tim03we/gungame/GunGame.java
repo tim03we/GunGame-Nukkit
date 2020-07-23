@@ -1,9 +1,6 @@
 package tim03we.gungame;
 
 /*
- * Copyright (c) 2019 tim03we  < https://github.com/tim03we >
- * Discord: tim03we | TP#9129
- *
  * This software is distributed under "GNU General Public License v3.0".
  * This license allows you to use it and/or modify it but you are not at
  * all allowed to sell this plugin at any cost. If found doing so the
@@ -21,6 +18,7 @@ package tim03we.gungame;
 
 import cn.nukkit.Player;
 import cn.nukkit.item.Item;
+import cn.nukkit.level.GameRule;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import tim03we.gungame.listener.*;
@@ -58,6 +56,8 @@ public class GunGame extends PluginBase {
         change_max = settings.MAX_KITS;
         this.getServer().getScheduler().scheduleRepeatingTask(new GGTask(this), 10);
         this.getServer().getScheduler().scheduleRepeatingTask(new LoadKits(this), 1);
+
+        this.getServer().getDefaultLevel().getGameRules().setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
     }
 
     public void invClear(Player player)
@@ -77,29 +77,29 @@ public class GunGame extends PluginBase {
         int currLevel = this.levels.get(player.getName());
         player.setHealth(20);
         player.setNameTag(settings.NAMETAG_FORMAT.replace("{player}", player.getName()).replace("{level}", String.valueOf(currLevel)));
+        Item helmet;
+        Item chestplate;
+        Item leggings;
+        Item boots;
+        Item weapon;
         if(settings.MAX_KITS < currLevel) {
-            Item helmet = Item.get(kits.helmet.get(settings.MAX_KITS));
-            Item chestplate = Item.get(kits.chestplate.get(settings.MAX_KITS));
-            Item leggings = Item.get(kits.leggings.get(settings.MAX_KITS));
-            Item boots = Item.get(kits.boots.get(settings.MAX_KITS));
-            Item weapon = Item.get(kits.weapons.get(settings.MAX_KITS));
-            player.getInventory().setHelmet(helmet);
-            player.getInventory().setChestplate(chestplate);
-            player.getInventory().setLeggings(leggings);
-            player.getInventory().setBoots(boots);
-            player.getInventory().setItem(0, weapon);
+            helmet = Item.get(kits.helmet.get(settings.MAX_KITS));
+            chestplate = Item.get(kits.chestplate.get(settings.MAX_KITS));
+            leggings = Item.get(kits.leggings.get(settings.MAX_KITS));
+            boots = Item.get(kits.boots.get(settings.MAX_KITS));
+            weapon = Item.get(kits.weapons.get(settings.MAX_KITS));
         } else {
-            Item helmet = Item.get(kits.helmet.get(currLevel));
-            Item chestplate = Item.get(kits.chestplate.get(currLevel));
-            Item leggings = Item.get(kits.leggings.get(currLevel));
-            Item boots = Item.get(kits.boots.get(currLevel));
-            Item weapon = Item.get(kits.weapons.get(currLevel));
-            player.getInventory().setHelmet(helmet);
-            player.getInventory().setChestplate(chestplate);
-            player.getInventory().setLeggings(leggings);
-            player.getInventory().setBoots(boots);
-            player.getInventory().setItem(0, weapon);
+            helmet = Item.get(kits.helmet.get(currLevel));
+            chestplate = Item.get(kits.chestplate.get(currLevel));
+            leggings = Item.get(kits.leggings.get(currLevel));
+            boots = Item.get(kits.boots.get(currLevel));
+            weapon = Item.get(kits.weapons.get(currLevel));
         }
+        player.getInventory().setHelmet(helmet);
+        player.getInventory().setChestplate(chestplate);
+        player.getInventory().setLeggings(leggings);
+        player.getInventory().setBoots(boots);
+        player.getInventory().setItem(0, weapon);
         if(settings.USE_OTHER_ITEMS) {
             for(String list : settings.OTHER_ITEMS) {
                 String[] get = list.split(":");
@@ -230,7 +230,7 @@ public class GunGame extends PluginBase {
         int cL = this.levels.get(player.getName());
         int nL = (int) (levels.get(player.getName()) - Math.round(cL / 0.60 / 2 / 3));
         if(nL == 0 || nL < 0) {
-            this.levels.put(player.getName(), 0);
+            this.levels.put(player.getName(), 1);
         } else {
             this.levels.put(player.getName(), nL);
         }
