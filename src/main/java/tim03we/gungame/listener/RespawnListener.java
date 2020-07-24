@@ -37,5 +37,6 @@ public class RespawnListener implements Listener {
     {
         Player player = event.getPlayer();
         this.plugin.needLevel.put(player.getName(), 1);
+        event.setRespawnPosition(plugin.getSpawnPos());
     }
 }

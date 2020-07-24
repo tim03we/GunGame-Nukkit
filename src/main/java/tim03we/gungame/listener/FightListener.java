@@ -17,6 +17,7 @@ package tim03we.gungame.listener;
  */
 
 import cn.nukkit.Player;
+import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.EventPriority;
 import cn.nukkit.event.Listener;
@@ -33,16 +34,18 @@ public class FightListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onFight(EntityDamageByEntityEvent event) {
-        Player player = (Player) event.getEntity();
-        int x = player.getFloorX();
-        int y = player.getFloorY();
-        int z = player.getFloorZ();
-        int sx = player.getLevel().getSafeSpawn().getFloorX();
-        int sy = player.getLevel().getSafeSpawn().getFloorY();
-        int sz = player.getLevel().getSafeSpawn().getFloorZ();
-        int cp = plugin.settings.PVP_RADIUS;
-        if(Math.abs(sx - x) < cp && Math.abs(sy - y) < cp && Math.abs(sz - z) < cp) {
-            event.setCancelled(true);
+        Entity player = event.getEntity();
+        if(player instanceof Player) {
+            int x = player.getFloorX();
+            int y = player.getFloorY();
+            int z = player.getFloorZ();
+            int sx = plugin.getSpawnPos().getFloorX();
+            int sy = plugin.getSpawnPos().getFloorY();
+            int sz = plugin.getSpawnPos().getFloorZ();
+            int cp = plugin.settings.PVP_RADIUS;
+            if(Math.abs(sx - x) < cp && Math.abs(sy - y) < cp && Math.abs(sz - z) < cp) {
+                event.setCancelled(true);
+            }
         }
     }
 }

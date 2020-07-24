@@ -17,8 +17,10 @@ package tim03we.gungame;
  */
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.GameRule;
+import cn.nukkit.level.Location;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import tim03we.gungame.listener.*;
@@ -40,8 +42,8 @@ public class GunGame extends PluginBase {
     public void onLoad()
     {
         for (Player player: this.getServer().getOnlinePlayers().values()) {
-            this.levels.put(player.getName(), 0);
-            this.needLevel.put(player.getName(), 0);
+            this.levels.put(player.getName(), 1);
+            this.needLevel.put(player.getName(), 1);
             player.sendMessage(this.getConfig().getString("messages.reload"));
         }
     }
@@ -57,7 +59,7 @@ public class GunGame extends PluginBase {
         this.getServer().getScheduler().scheduleRepeatingTask(new GGTask(this), 10);
         this.getServer().getScheduler().scheduleRepeatingTask(new LoadKits(this), 1);
 
-        this.getServer().getDefaultLevel().getGameRules().setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
+        this.getServer().getDefaultLevel().getGameRules().setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, false);
     }
 
     public void invClear(Player player)
@@ -68,6 +70,11 @@ public class GunGame extends PluginBase {
         player.getInventory().setBoots(Item.get(Item.AIR));
         player.getCursorInventory().clearAll();
         player.getInventory().clearAll();
+    }
+
+    public Location getSpawnPos() {
+        return new Location(getConfig().getDouble("spawn.x"), getConfig().getDouble("spawn.y"), getConfig().getDouble("spawn.z"),
+                Server.getInstance().getLevelByName(getConfig().getString("spawn.world")));
     }
 
     public void levelChange(Player player)

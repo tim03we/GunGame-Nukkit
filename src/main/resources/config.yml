@@ -1,4 +1,11 @@
 ---
+# Spawn Position
+spawn:
+  x: 21
+  y: 66
+  z: 153
+  world: "world"
+
 # At which level should you no longer be able to receive kits?
 Maximum-Level: 4
 

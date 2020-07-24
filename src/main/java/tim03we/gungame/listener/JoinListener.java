@@ -40,5 +40,9 @@ public class JoinListener implements Listener {
         this.plugin.levelChange(player);
         player.setGamemode(plugin.settings.GAMEMODE);
         event.setJoinMessage(this.plugin.getConfig().getString("messages.join").replace("{player}", player.getName()));
+
+        Server.getInstance().getScheduler().scheduleDelayedTask(() -> {
+            player.teleport(plugin.getSpawnPos());
+        }, 1);
     }
 }

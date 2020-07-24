@@ -53,12 +53,12 @@ public class MoveListener implements Listener {
                 Entity damager = ((EntityDamageByEntityEvent) cause).getDamager();
                 if(damager instanceof Player) {
                     this.plugin.levelUp((Player)damager);
-                    player.teleport(Server.getInstance().getDefaultLevel().getSafeSpawn());
+                    player.teleport(plugin.getSpawnPos());
                     player.attack(new EntityDamageEvent(player, EntityDamageEvent.DamageCause.CUSTOM, 1000));
                     this.plugin.getServer().broadcastMessage(this.plugin.getConfig().getString("messages.kill").replace("{player}", player.getName()).replace("{killer}", damager.getName()));
                 }
             } else {
-                player.teleport(Server.getInstance().getDefaultLevel().getSafeSpawn());
+                player.teleport(plugin.getSpawnPos());
                 player.attack(new EntityDamageEvent(player, EntityDamageEvent.DamageCause.DROWNING, 1000));
             }
         }
